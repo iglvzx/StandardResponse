@@ -10,7 +10,7 @@ DefaultPath := ""
 IniRead, DefaultPath, StandardResponse.ini, Default, Path, %A_Space%
 if (DefaultPath = "") ; if no settings found
 {
-	MsgBox, 36, StandardResponse, No settings found.`nDo you want to set a default path?
+	MsgBox, 52, StandardResponse, No settings found.`nDo you want to set a default path?
 	IfMsgBox, Yes
 	{
 		FileSelectFile, DefaultPath, , %A_ScriptDir%, , Text Documents (*.txt)
@@ -38,13 +38,13 @@ if (DefaultPath = "") ; if no settings found
 	if (ErrorLevel = 1) ; if the selected file is invalid
 	{
 		StringReplace, RelPath, FilePath, %A_WorkingDir%
-		MsgBox, 48, Error, File not found:`n%RelPath%
+		MsgBox, 48, StandardResponse, File not found:`n%RelPath%
 		return
 	}
 	if (FileText = "") ; if the selected file is empty
 	{
 		StringReplace, RelPath, FilePath, %A_WorkingDir%
-		MsgBox, 48, Error, No text in file:`n%RelPath%
+		MsgBox, 48, StandardResponse, No text in file:`n%RelPath%
 		return
 	}
 	
