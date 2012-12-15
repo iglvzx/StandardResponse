@@ -5,7 +5,21 @@ SetWinDelay, -1
 SetKeyDelay, -1
 SetWorkingDir, %A_ScriptDir%
 
-DefaultPath = Text\Signature.txt
+; set the default path
+DefaultPath := ""
+IniRead, DefaultPath, StandardResponse.ini, Default, Path, %A_Space%
+if (DefaultPath = "") ; if no settings found
+{
+	MsgBox, 36, StandardResponse, No settings found.`nDo you want to set a default path?
+	IfMsgBox, Yes
+	{
+		FileSelectFile, DefaultPath, , %A_ScriptDir%, , Text Documents (*.txt)
+	}
+	else
+	{
+		DefaultPath := A_ScriptDir
+	}
+}
 
 ; hotkeys
 #/:: ; Win  + /
