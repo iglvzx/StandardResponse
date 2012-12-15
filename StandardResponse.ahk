@@ -2,16 +2,34 @@
 #SingleInstance, Force
 SetBatchLines, -1
 SetWinDelay, -1
+SetKeyDelay, -1
+SetWorkingDir, %A_ScriptDir%
+
+DefaultPath = Text\Signature.txt
 
 ; Hotkeys
 #/:: ; Win  + /
 	
-	ClipboardBackup := Clipboard
+	ClipboardBackup := ClipboardAll
 	WinGet, Window, ID, A
 	
-	; Select and read file
-	FileSelectFile, FilePath, 1
+	; Select file
+	FileSelectFile, FilePath, , %DefaultPath%, , Text Documents (*.txt)
+	
+	; Read file
 	FileRead, FileText, %FilePath%
+	if (ErrorLevel = 1) ; if file selected is invalid
+	{
+		StringReplace, RelPath, FilePath, %A_WorkingDir%
+		MsgBox, 48, Error, File not found:`n%RelPath%
+		return
+	}
+	if (FileText = "")
+	{
+		StringReplace, RelPath, FilePath, %A_WorkingDir%
+		MsgBox, 48, Error, No text in file:`n%RelPath%
+		return
+	}
 	
 	; Copy file text to clipboard
 	Clipboard =
@@ -24,8 +42,16 @@ SetWinDelay, -1
 	Sleep, 100
 	
 	; Restore clipboard
-	Clipboard =
-	Clipboard := ClipboardBackup
-	ClipWait
+	if (ClipboardBackup = "") ; if clipboard was originally empty
+	{
+		; do nothing
+	}
+	else
+	{
+		Clipboard =
+		Clipboard := ClipboardBackup
+		ClipWait
+		ClipboardBackup = ; free memory
+	}
 	
 	return
