@@ -28,6 +28,7 @@ if (DefaultPath = "") ; if no settings found
 		DefaultPath := A_ScriptDir
 	}
 }
+TrayTip, StandardResponse, Hotkey: Win + /
 
 return
 
