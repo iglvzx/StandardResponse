@@ -6,6 +6,7 @@ SetKeyDelay, -1
 SetWorkingDir, %A_ScriptDir%
 
 ; tray icon menu setup
+Menu, Tray, Icon, StandardResponse.ico
 Menu, Tray, NoStandard
 Menu, Tray, Tip, StandardResponse ©2012 Israel Galvez
 Menu, Tray, Add, &About, About
