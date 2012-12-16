@@ -5,6 +5,24 @@ SetWinDelay, -1
 SetKeyDelay, -1
 SetWorkingDir, %A_ScriptDir%
 
+; tray icon menu setup
+Menu, Tray, NoStandard
+Menu, Tray, Tip, StandardResponse ©2012 Israel Galvez
+Menu, Tray, Add, &About, About
+Menu, tray, Add, &Refresh, Refresh
+Menu, Tray, Add, &Quit, Quit
+return
+
+About:
+	Run, https://github.com/iglvzx/StandardResponse
+	return
+	
+Refresh:
+	Reload
+
+Quit:
+	ExitApp
+
 ; set the default path
 DefaultPath := ""
 IniRead, DefaultPath, StandardResponse.ini, Default, Path, %A_Space%
@@ -13,7 +31,7 @@ if (DefaultPath = "") ; if no settings found
 	MsgBox, 52, StandardResponse, No settings found.`nDo you want to set a default path?
 	IfMsgBox, Yes
 	{
-		FileSelectFile, DefaultPath, , %A_ScriptDir%, , Text Documents (*.txt)
+		FileSelectFile, DefaultPath, , %A_ScriptDir%, StandardResponse, Text Documents (*.txt)
 	}
 	else
 	{
@@ -27,7 +45,7 @@ if (DefaultPath = "") ; if no settings found
 	ClipboardBackup := ClipboardAll
 	
 	; select a file
-	FileSelectFile, FilePath, , %DefaultPath%, , Text Documents (*.txt)
+	FileSelectFile, FilePath, , %DefaultPath%, StandardResponse, Text Documents (*.txt)
 	if (ErrorLevel = 1) ; if no file is selected
 	{
 		return
