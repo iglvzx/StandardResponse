@@ -11,17 +11,6 @@ Menu, Tray, Tip, StandardResponse ©2012 Israel Galvez
 Menu, Tray, Add, &About, About
 Menu, tray, Add, &Refresh, Refresh
 Menu, Tray, Add, &Quit, Quit
-return
-
-About:
-	Run, https://github.com/iglvzx/StandardResponse
-	return
-	
-Refresh:
-	Reload
-
-Quit:
-	ExitApp
 
 ; set the default path
 DefaultPath := ""
@@ -38,6 +27,18 @@ if (DefaultPath = "") ; if no settings found
 		DefaultPath := A_ScriptDir
 	}
 }
+
+return
+
+About:
+	Run, https://github.com/iglvzx/StandardResponse
+	return
+	
+Refresh:
+	Reload
+
+Quit:
+	ExitApp
 
 ; hotkeys
 #/:: ; Win  + /
