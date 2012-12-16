@@ -8,7 +8,7 @@ SetWorkingDir, %A_ScriptDir%
 ; tray icon menu setup
 Menu, Tray, Icon, StandardResponse.ico
 Menu, Tray, NoStandard
-Menu, Tray, Tip, StandardResponse ©2012 Israel Galvez
+Menu, Tray, Tip, StandardResponse (c)2012 Israel Galvez
 Menu, Tray, Add, &About, About
 Menu, tray, Add, &Refresh, Refresh
 Menu, Tray, Add, &Quit, Quit
