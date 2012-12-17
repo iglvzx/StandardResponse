@@ -5,6 +5,12 @@ SetWinDelay, -1
 SetKeyDelay, -1
 SetWorkingDir, %A_ScriptDir%
 
+; global variabls
+WinX =
+WinY =
+WinWidth =
+WinHeight =
+
 ; tray icon menu setup
 Menu, Tray, Icon, StandardResponse.ico
 Menu, Tray, NoStandard
@@ -32,6 +38,8 @@ TrayTip, StandardResponse, Hotkey: Win + /
 
 return
 
+; subroutines
+
 About:
 	Run, https://github.com/iglvzx/StandardResponse
 	return
@@ -41,16 +49,32 @@ Refresh:
 
 Quit:
 	ExitApp
+	
+CenterDialog:
+	IfWinNotExist, StandardResponse
+	{
+		return
+	}
+	SetTimer, CenterDialog, Off
+	WinGetPos, , , MyWidth, MyHeight, StandardResponse
+	WinMove, StandardResponse, , WinX + (WinWidth/2 - MyWidth/2), WinY + (WinHeight/2 - MyHeight/2)
+	WinActivate, StandardResponse
+	return
 
 ; hotkeys
 #/:: ; Win  + /
 	
 	ClipboardBackup := ClipboardAll
 	
+	; get the active window's coordinates and dimensions
+	WinGetPos, WinX, WinY, WinWidth, WinHeight, A
+	
 	; select a file
+	SetTimer, CenterDialog, 50
 	FileSelectFile, FilePath, , %DefaultPath%, StandardResponse, Text Documents (*.txt)
 	if (ErrorLevel = 1) ; if no file is selected
 	{
+		SetTimer, CenterDialog, Off
 		return
 	}
 	
@@ -58,14 +82,18 @@ Quit:
 	FileRead, FileText, %FilePath%
 	if (ErrorLevel = 1) ; if the selected file is invalid
 	{
+		SetTimer, CenterDialog, 50
 		StringReplace, RelPath, FilePath, %A_WorkingDir%
 		MsgBox, 48, StandardResponse, File not found:`n%RelPath%
+		SetTimer, CenterDialog, Off
 		return
 	}
 	if (FileText = "") ; if the selected file is empty
 	{
+		SetTimer, CenterDialog, 50
 		StringReplace, RelPath, FilePath, %A_WorkingDir%
 		MsgBox, 48, StandardResponse, No text in file:`n%RelPath%
+		SetTimer, CenterDialog, Off
 		return
 	}
 	
