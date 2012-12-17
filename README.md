@@ -5,7 +5,7 @@ The universal [canned response](http://en.wikipedia.org/wiki/Canned_response) to
 
 - StandardResponse is a productivity application written in [AutoHokey_L](http://l.autohotkey.net/).
 - StandardResponse allows you to quickly copy and paste text files, saving you time and energy!
-- Standard Response is universal. Use canned responses with **any** application or window that allows you to paste text using <kbd>Ctrl</kbd>**+**<kbd>V</kbd>.
+- StandardResponse is universal. Use canned responses with **any** application or window that allows you to paste text using <kbd>Ctrl</kbd>**+**<kbd>V</kbd>!
 
 ##Instructions
 1. Press <kbd>Win</kbd>**+**<kbd>/</kbd> to open the file select dialog.
@@ -23,6 +23,9 @@ If no **StandardResponse.ini** exists or the contents are formatted incorrectly,
 ##Roadmap
 - Have the file select dialog appear in the center of the active window.
 - Add the ability to define keywords using **StandardResponse.ini** that expand to paste the given text/file.
+
+##FAQs
+- **Will StandardResponse replace the contents of my clipboard?**<br> Only temporarily. StandardResponse saves a backup of the clipboard (text, images, etc) and then restores the clipboard after it is done copying and pasting a canned response.
 
 ##System Requirements
 - Windows XP, Windows Vista, or Windows 7
