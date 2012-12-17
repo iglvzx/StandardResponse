@@ -1,8 +1,11 @@
 #StandardResponse
+The universal [canned response](http://en.wikipedia.org/wiki/Canned_response) tool.&trade;
 
 ##About
 
-StandardResponse is a productivity application written in [AutoHokey_L](http://l.autohotkey.net/). StandardResponse allows you to quickly copy and paste text files, saving you time and energy!
+- StandardResponse is a productivity application written in [AutoHokey_L](http://l.autohotkey.net/).
+- StandardResponse allows you to quickly copy and paste text files, saving you time and energy!
+- Standard Response is universal. Use canned responses with **any** application or window that allows you to paste text using <kbd>Ctrl</kbd>**+**<kbd>V</kbd>.
 
 ##Instructions
 1. Press <kbd>Win</kbd>**+**<kbd>/</kbd> to open the file select dialog.
