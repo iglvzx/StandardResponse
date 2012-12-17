@@ -21,7 +21,7 @@ This configuration file can be used to set the **default path**. The default pat
 If no **StandardResponse.ini** exists or the contents are formatted incorrectly, StandardResponse will ask you to select a default path each time it is launched. If no default path is selected, the default path will be the folder where **StandardResponse.exe** is located.
 
 ##Roadmap
-- Have the file select dialog appear in the center of the active window.
+- <del>[Have the file select dialog appear in the center of the active window.](https://github.com/iglvzx/StandardResponse/commit/0271e4f794a62c7915e07e6de8721902954e1858)</del>
 - Add the ability to define keywords using **StandardResponse.ini** that expand to paste the given text/file.
 - Add the ability to define the keyboard shortcut through **StandardResponse.ini**.
 
