@@ -4,6 +4,7 @@ SetBatchLines, -1
 SetWinDelay, -1
 SetKeyDelay, -1
 SetWorkingDir, %A_ScriptDir%
+#Include, %A_ScriptDir%
 
 ; tray icon menu setup ---------------------------------------------------------
 Menu, Tray, Icon, StandardResponse.ico
@@ -46,6 +47,10 @@ Quit:
 
 ; hotkeys ----------------------------------------------------------------------
 #/:: ; Win  + /
+
+	KeyWait, LWin
+	KeyWait, RWin
+	KeyWait, /
 	
 	ClipboardBackup := ClipboardAll
 	
