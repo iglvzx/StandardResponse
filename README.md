@@ -24,7 +24,8 @@ If no **StandardResponse.ini** exists or the contents are formatted incorrectly,
 - <del>[Have the file select dialog appear in the center of the active window.](https://github.com/iglvzx/StandardResponse/commit/0271e4f794a62c7915e07e6de8721902954e1858)</del>
 - Add the ability to define keywords using **StandardResponse.ini** that expand to paste the given text/file.
 - Add the ability to define the keyboard shortcut through **StandardResponse.ini**.
-- Interactive responses with variables (templates).
+- Interactive responses with variables.
+- Template based responses (i.e. ability to include other text files).
 
 ##FAQs
 - **Will StandardResponse replace the contents of my clipboard?**<br> Only temporarily. StandardResponse saves a backup of the clipboard (text, images, etc) and then restores the clipboard after it is done copying and pasting a canned response.
