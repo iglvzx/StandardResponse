@@ -76,26 +76,11 @@ Quit:
 		return
 	}
 	
-	; copy the file's text to the clipboard
-	Clipboard =
-	Clipboard := Filetext
-	ClipWait
-	
-	; paste the file's text
-	SendInput, ^v
-	Sleep, 100
-	
-	; restore the clipboard
-	if (ClipboardBackup = "") ; if the clipboard was originally empty
+	; type file contents, line by line
+	Loop, Parse, FileText, `n, `r
 	{
-		; do nothing
-	}
-	else
-	{
-		Clipboard =
-		Clipboard := ClipboardBackup
-		ClipWait
-		ClipboardBackup = ; free memory
+		SendInput, {Raw}%A_LoopField%
+		SendInput,`n
 	}
 	
 	return
