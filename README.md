@@ -4,13 +4,13 @@ The universal [canned response](http://en.wikipedia.org/wiki/Canned_response) to
 ##About
 
 - StandardResponse is a productivity application written in [AutoHokey_L](http://l.autohotkey.net/).
-- StandardResponse allows you to quickly copy and paste text files, saving you time and energy!
-- StandardResponse is universal. Use canned responses with **any** application or window that allows you to paste text using <kbd>Ctrl</kbd>**+**<kbd>V</kbd>!
+- StandardResponse allows you to quickly input the content of text files, saving you time and energy!
+- StandardResponse is universal. Use canned responses with **any** application or window with a text box.
 
 ##Instructions
 1. Press <kbd>Win</kbd>**+**<kbd>/</kbd> to open the file select dialog.
 2. Select a file to open.
-3. The file contents will be automatically pasted to the active window.
+3. The file contents will be automatically typed to the active window.
 
 ##StandardResponse.ini
 This configuration file can be used to set the **default path**. The default path is the file that is automatically selected when the file select dialog is opened. The default path is relative to the location of **StandardResponse.exe**.
@@ -28,7 +28,7 @@ If no **StandardResponse.ini** exists or the contents are formatted incorrectly,
 - Template based responses (i.e. ability to include other text files).
 
 ##FAQs
-- **Will StandardResponse replace the contents of my clipboard?**<br> Only temporarily. StandardResponse saves a backup of the clipboard (text, images, etc) and then restores the clipboard after it is done copying and pasting a canned response.
+- [<del>**Will StandardResponse replace the contents of my clipboard?**<br> Only temporarily. StandardResponse saves a backup of the clipboard (text, images, etc) and then restores the clipboard after it is done copying and pasting a canned response.</del>](https://github.com/iglvzx/StandardResponse/commit/302d3a680e884051740f5db7efd94f4f2389bfe6)
 
 ##System Requirements
 - Windows XP, Windows Vista, or Windows 7
